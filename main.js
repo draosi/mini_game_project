@@ -1,27 +1,87 @@
-// This file wil contain function
+const cards = [
+  { name: "Pikachu", img: "Pikachu.jpeg" },
+  { name: "Dracaufeu", img: "Dracaufeu.jpeg" },
+  { name: "Tortank", img: "Tortank.jpeg" },
+  { name: "Florizarre", img: "Florizarre.jpeg" },
+  { name: "Mewtwo", img: "Mewtwo.jpeg" },
+  { name: "Ronflex", img: "Ronflex.jpeg" },
+  { name: "Voltali", img: "Voltali.jpeg" },
+  { name: "Dracolosse", img: "Dracolosse.jpeg" },
+  { name: "Mew", img: "Mew.jpeg" },
+  { name: "Aquali", img: "Aquali.jpeg" },
+  { name: "Pikachu", img: "Pikachu.jpeg" },
+  { name: "Dracaufeu", img: "Dracaufeu.jpeg" },
+  { name: "Tortank", img: "Tortank.jpeg" },
+  { name: "Florizarre", img: "Florizarre.jpeg" },
+  { name: "Mewtwo", img: "Mewtwo.jpeg" },
+  { name: "Ronflex", img: "Ronflex.jpeg" },
+  { name: "Voltali", img: "Voltali.jpeg" },
+  { name: "Dracolosse", img: "Dracolosse.jpeg" },
+  { name: "Mew", img: "Meg" },
+  { name: "Aquali", img: "Aquali.jpeg" }
+  ];
 
-class Pokemon {
-  constructor(name, type) {
-    this.name = name;
-    this.type = type;
-  }
-}
+const pokemem = new PokeMem(cards);
+pokemem.shuffleCards();
+window.addEventListener("load", (event) => {
+  let html = "";
+  pokemem.cards.forEach((pic) => {
+    html += `
+      <div class="card" data-card-name="${pic.name}">
+        <div class="back" name="${pic.img}"></div>
+        <div class="front" style="background: url(img/${pic.img}) no-repeat"></div>
+      </div>
+    `;
+  });
 
-const card1 = new Pokemon("Pikachu", "electrique");
-const card2 = new Pokemon("Dracaufeu", "feu");
-const card3 = new Pokemon("Tortank", "eau");
-const card4 = new Pokemon("Bulbizarre", "plante");
-const card5 = new Pokemon("Mewtwo", "psy");
-const card6 = new Pokemon("Miaouss", "normal");
-const card7 = new Pokemon("Ectoplasma", "spectre");
-const card8 = new Pokemon("Dracolosse", "dragon");
-const card9 = new Pokemon("Onyx", "roche");
-const card10 = new Pokemon("");
+  document.querySelector("#poke-board").innerHTML = html;
 
-const positionRandom = () => Math.floor(Math.random() * 16);
+  document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("click", () => {
+      if (
+        !card.classList.contains("blocked") &&
+        pokemem.pickedCards.length < 2
+      ) {
+        card.classList.toggle("turned");
+        pokemem.pickedCards.push(card);
+      }
 
-const type = ["", ""];
+      const checkToCard = () => {
+        return pokemem.pickedCards.length == 2;
+      };
 
-//  electrique feu eau plante psy roche sol normal spectre dragon
-// electrique fort contre eau et vol / faible contre roche et
-//
+      if (checkToCard()) {
+        let card1 = pokemem.pickedCards[0].dataset.cardName;
+        let card2 = pokemem.pickedCards[1].dataset.cardName;
+        if (pokemem.checkIfPair(card1, card2)) {
+          let blockedCard = document.querySelectorAll(".turned");
+          blockedCard.forEach((element) => {
+            element.classList.add("blocked");
+          });
+          const pairsGuessed = document.querySelector("#pairs-guessed");
+          pairsGuessed.innerHTML = pokemem.pairsGuessed;
+          pokemem.pickedCards = [];
+          setTimeout(() => {
+            if (pokemem.checkIfFinished()) {
+              window.alert("Victory");
+            }
+          }, 1000);
+        } else {
+          const returnCards = () => {
+            setTimeout(() => {
+              let turn = document.querySelectorAll(".turned:not(.blocked)");
+              turn.forEach((card) => {
+                card.classList.toggle("turned");
+              });
+              pokemem.pairsClicked.textContent = pokemem.pairsClicked;
+              pokemem.pickedCards = [];
+            }, 1000);
+          };
+          const pairsClicked = document.querySelector("#pairs-clicked");
+          pairsClicked.innerHTML = pokemem.pairsClicked;
+          returnCards();
+        }
+      }
+    });
+  });
+});

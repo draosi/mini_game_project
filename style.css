@@ -1,3 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+body {
+  font-family: 'Pokemon Solid', sans-serif;
+}
+
 #myVideo {
   position: fixed;
   right: 0;
@@ -5,6 +11,43 @@
   min-width: 100%;
   min-height: 100%;
 }
+
+/* Instructions */
+.div {
+  display: flex;
+  justify-content: center;
+  padding-top : 10vh;
+}
+
+.navigation{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  border-radius: 15%;
+  color: #ffcb00;
+  background: rgb(6,0,36, 50%);
+  }
+
+h1 {
+  text-align: center;
+  letter-spacing: 1.5px;
+}
+
+h2 {
+  text-align: center;
+  letter-spacing: 1.5px;
+}
+
+p {
+  text-align: center;
+  list-style-type: none;
+  line-height: 50px;
+  letter-spacing: 1.5px;
+  padding: 5%;
+} 
 
 /* Add some content at the bottom of the video/page */
 .content {
