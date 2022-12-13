@@ -1,24 +1,28 @@
 const cards = [
-  { name: "Pikachu", img: "Pikachu.jpeg" },
-  { name: "Dracaufeu", img: "Dracaufeu.jpeg" },
-  { name: "Tortank", img: "Tortank.jpeg" },
-  { name: "Florizarre", img: "Florizarre.jpeg" },
+  { name: "Pikachu", img: "Pikachu.png" },
+  { name: "Dracaufeu", img: "Dracaufeu.png" },
+  { name: "Leviator", img: "Leviator.png" },
+  { name: "Florizarre", img: "Florizarre.png" },
   { name: "Mewtwo", img: "Mewtwo.jpeg" },
-  { name: "Ronflex", img: "Ronflex.jpeg" },
-  { name: "Voltali", img: "Voltali.jpeg" },
-  { name: "Dracolosse", img: "Dracolosse.jpeg" },
-  { name: "Mew", img: "Mew.jpeg" },
-  { name: "Aquali", img: "Aquali.jpeg" },
-  { name: "Pikachu", img: "Pikachu.jpeg" },
-  { name: "Dracaufeu", img: "Dracaufeu.jpeg" },
-  { name: "Tortank", img: "Tortank.jpeg" },
-  { name: "Florizarre", img: "Florizarre.jpeg" },
+  { name: "Ronflex", img: "Ronflex.png" },
+  { name: "Voltali", img: "Voltali.png" },
+  { name: "Dracolosse", img: "Dracolosse.png" },
+  { name: "Mew", img: "Mew.png" },
+  { name: "Aquali", img: "Aquali.png" },
+  { name: "Pyroli", img: "Pyroli.png" },
+  { name: "Lokhlass", img: "Lokhlass.png" },
+  { name: "Pikachu", img: "Pikachu.png" },
+  { name: "Dracaufeu", img: "Dracaufeu.png" },
+  { name: "Leviator", img: "Leviator.png" },
+  { name: "Florizarre", img: "Florizarre.png" },
   { name: "Mewtwo", img: "Mewtwo.jpeg" },
-  { name: "Ronflex", img: "Ronflex.jpeg" },
-  { name: "Voltali", img: "Voltali.jpeg" },
-  { name: "Dracolosse", img: "Dracolosse.jpeg" },
-  { name: "Mew", img: "Meg" },
-  { name: "Aquali", img: "Aquali.jpeg" }
+  { name: "Ronflex", img: "Ronflex.png" },
+  { name: "Voltali", img: "Voltali.png" },
+  { name: "Dracolosse", img: "Dracolosse.png" },
+  { name: "Mew", img: "Mew.png" },
+  { name: "Aquali", img: "Aquali.png" },
+  { name: "Pyroli", img: "Pyroli.png" },
+  { name: "Lokhlass", img: "Lokhlass.png" }
   ];
 
 const pokemem = new PokeMem(cards);
@@ -29,7 +33,7 @@ window.addEventListener("load", (event) => {
     html += `
       <div class="card" data-card-name="${pic.name}">
         <div class="back" name="${pic.img}"></div>
-        <div class="front" style="background: url(img/${pic.img}) no-repeat"></div>
+        <div class="front" style="background: url(img/${pic.img}) no-repeat; background-size : cover";></div>
       </div>
     `;
   });
