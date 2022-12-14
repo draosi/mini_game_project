@@ -2,7 +2,7 @@
 body {
   height: 1000px;
   margin: 0;
-  background: url("./img/arena.jpg") no-repeat;
+  background: url("./img/arena.png") no-repeat;
   background-size: 100% 100%;
   font-family: "Pokemon Solid", sans-serif;
   font-style: italic;
@@ -20,7 +20,6 @@ body {
   font-size: larger;
 }
 li {
-
   color: #416aa4;
   font-family: "Pokemon Solid", sans-serif;
   text-shadow: 2px 2px 4px black;
@@ -33,13 +32,13 @@ li {
 }
 
 #poke-board {
-  width: 80%;
-  height: 70%;
-  padding: 70px;
+  width: 76.7%;
+  height: 60%;
+  padding-top: 5.7%;
   margin: 0px auto;
   border-radius: 84px;
   box-shadow: inset 0px 0px 20px -6px #615961;
- /*  z-index: -1; */
+  z-index: -1;
 }
 
 .card {
@@ -86,12 +85,11 @@ li {
 }
 
 h1 {
+  display: flex;
   color: #ffcb00;
   font-size: 70px;
   text-shadow: 2px 2px 4px black;
 }
-
-
 
 p {
   font-weight: bolder;
@@ -99,9 +97,7 @@ p {
   text-align: center;
 }
 
-
 /* you win  */
-
 
 .navigation {
   position: fixed;
@@ -112,7 +108,17 @@ p {
   color: #ffcb00;
   background: rgb(6, 0, 36, 50%);
   box-shadow: 2px 2px 2px black;
-  /* visibility: hidden; */
+}
+
+#winState {
+  visibility: hidden;
+}
+#loseState {
+  visibility: hidden;
+}
+
+#lvl {
+  /*  visibility: hidden; */
 }
 
 .navigation-two {
@@ -137,4 +143,18 @@ p {
   border: none;
   cursor: pointer;
   overflow: hidden;
+}
+
+.lvlNumber {
+  color: #ffcb00;
+  font-family: "Pokemon Solid", sans-serif;
+  text-shadow: 2px 2px 4px black;
+  list-style: none;
+  display: inline-block;
+  padding: 0 30px;
+  font-size: 30px;
+}
+
+.lvlNumber:hover {
+  scale: 1.5;
 }

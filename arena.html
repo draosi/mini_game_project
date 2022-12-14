@@ -23,6 +23,16 @@
           ></a>
         </li>
         <li>05:00</li>
+        <li id="start">
+          <lottie-player
+            src="https://assets6.lottiefiles.com/packages/lf20_1X6X9xuFYX.json"
+            background="transparent"
+            speed="0.5"
+            style="width: 90px; height: 90px"
+            loop
+            autoplay
+          ></lottie-player>
+        </li>
         <li>
           <p>Pairs clicked: <span id="pairs-clicked">0</span></p>
         </li>
@@ -31,9 +41,29 @@
         </li>
       </ul>
     </nav>
+    <div id="lvl" class="navigation">
+      <button id="closeLevel" class="close-instructions">
+        <img
+          class="button-instruction"
+          src="./img/NicePng_close-button-png_521653.png"
+          alt="close instructions"
+        />
+      </button>
 
-    <div class="navigation">
-      <button class="close-instructions">
+      <div class="navigation-two">
+        <h1>Level</h1>
+        <div >
+          <ul id = "lvlNumberAll">
+            <li id="one" class="lvlNumber">1</li>
+            <li id="two" class="lvlNumber">2</li>
+            <li id="three" class="lvlNumber">3</li>
+            <li id="four" class="lvlNumber">4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="winState" class="navigation">
+      <button id="closeWin" class="close-instructions">
         <img
           class="button-instruction"
           src="./img/NicePng_close-button-png_521653.png"
@@ -43,14 +73,11 @@
 
       <div class="navigation-two">
         <h1>You win !</h1>
-        <p>
-          Try Again ?
-          <br />
-        </p>
+        <p class="replay">Replay</p>
       </div>
     </div>
 
-    <div class="navigation">
+    <div id="loseState" class="navigation">
       <button class="close-instructions">
         <img
           class="button-instruction"
@@ -61,7 +88,7 @@
 
       <div class="navigation-two">
         <h1>You Lose !</h1>
-        <p>
+        <p class="replay">
           Try Again ?
           <br />
         </p>

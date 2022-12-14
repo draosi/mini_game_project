@@ -22,11 +22,24 @@ const cards = [
   { name: "Mew", img: "Mew.png" },
   { name: "Aquali", img: "Aquali.png" },
   { name: "Pyroli", img: "Pyroli.png" },
-  { name: "Lokhlass", img: "Lokhlass.png" }
-  ];
+  { name: "Lokhlass", img: "Lokhlass.png" },
+];
 
 const pokemem = new PokeMem(cards);
-pokemem.shuffleCards();
+//pokemem.shuffleCards();
+
+// level choose
+
+const lvlOne = document.querySelector('#lvlNumberAll')
+lvlOne
+
+
+/* const lvlTwo = document.querySelector('#two')
+const lvlThree = document.querySelector('#three')
+const lvlFour = document.querySelector('#four') */
+
+
+
 window.addEventListener("load", (event) => {
   let html = "";
   pokemem.cards.forEach((pic) => {
@@ -42,6 +55,10 @@ window.addEventListener("load", (event) => {
 
   document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("click", () => {
+      
+      
+      
+      
       if (
         !card.classList.contains("blocked") &&
         pokemem.pickedCards.length < 2
@@ -57,6 +74,8 @@ window.addEventListener("load", (event) => {
       if (checkToCard()) {
         let card1 = pokemem.pickedCards[0].dataset.cardName;
         let card2 = pokemem.pickedCards[1].dataset.cardName;
+        
+        
         if (pokemem.checkIfPair(card1, card2)) {
           let blockedCard = document.querySelectorAll(".turned");
           blockedCard.forEach((element) => {
@@ -67,7 +86,24 @@ window.addEventListener("load", (event) => {
           pokemem.pickedCards = [];
           setTimeout(() => {
             if (pokemem.checkIfFinished()) {
-              window.alert("Victory");
+              const pokeBoard = document.querySelector("#poke-board");
+              pokeBoard.style.zIndex = -1;
+              
+              const finishedPopUp = document.querySelector("#winState");
+              finishedPopUp.style.visibility = "visible";
+              /* replay  */
+              const replayButton = document.querySelector('.replay')
+              replayButton.onclick=()=>{
+                replay()
+              }
+              /* Closing popup */
+const finishedPopUpButton = document.getElementById("closeWin");
+/* const pokeBoard = document.querySelector("#poke-board"); */
+
+              finishedPopUpButton.onclick = () => {
+                finishedPopUp.style.visibility = "hidden";
+                pokeBoard.style.zIndex = 1;
+              };
             }
           }, 1000);
         } else {
@@ -89,5 +125,18 @@ window.addEventListener("load", (event) => {
     });
   });
 });
+const replay = () => location.reload() 
+const start = document.querySelector('#start')
+start.onclick = () =>{
+  replay()
+}
 
-/* modified code  */
+
+
+/* LEVEL */
+/* const levelArray = [1,2,3,4,5] */
+
+/* Page reload function to restart the game */
+/* */
+
+/* Credits when the player qui the game */
