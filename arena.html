@@ -5,19 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Poké-Mem Aréna</title>
-    <link rel="stylesheet" href="./board.css">
+    <link rel="stylesheet" href="./board.css" />
   </head>
   <body>
-    <div id="score">
-      <h2>Time Left : 0:00:00</h2>
-      <p>Pairs clicked: <span id="pairs-clicked">0</span></p>
-      <p>Pairs guessed: <span id="pairs-guessed">0</span>/12</p>
+    <nav>
+      <ul id="nav_bar">
+        <li>
+          <a href="./index.html"
+            ><lottie-player
+              src="https://assets3.lottiefiles.com/packages/lf20_8xgkc3be.json"
+              background="transparent"
+              speed="0.4"
+              style="width: 150px; height: 150px"
+              loop
+              autoplay
+            ></lottie-player
+          ></a>
+        </li>
+        <li>05:00</li>
+        <li>
+          <p>Pairs clicked: <span id="pairs-clicked">0</span></p>
+        </li>
+        <li>
+          <p>Pairs guessed: <span id="pairs-guessed">0</span>/12</p>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="navigation">
+      <button class="close-instructions">
+        <img
+          class="button-instruction"
+          src="./img/NicePng_close-button-png_521653.png"
+          alt="close instructions"
+        />
+      </button>
+
+      <div class="navigation-two">
+        <h1>You win !</h1>
+        <p>
+          Try Again ?
+          <br />
+        </p>
+      </div>
     </div>
+
+    <div class="navigation">
+      <button class="close-instructions">
+        <img
+          class="button-instruction"
+          src="./img/NicePng_close-button-png_521653.png"
+          alt="close instructions"
+        />
+      </button>
+
+      <div class="navigation-two">
+        <h1>You Lose !</h1>
+        <p>
+          Try Again ?
+          <br />
+        </p>
+      </div>
+    </div>
+
     <div id="poke-board"></div>
 
     <script src="./main2.js"></script>
     <script src="./main.js"></script>
-    
-    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </body>
 </html>

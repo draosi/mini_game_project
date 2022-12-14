@@ -4,20 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Poké-Mem</title>
   </head>
   <body>
-
-    
-    
     <video autoplay muted loop id="myVideo">
       <source src="medias/backG.mp4" type="video/mp4" />
     </video>
-
     <!-- <audio controls  autoplay loop id="landingSound">
       <source src="./medias/audio/pokemonMainMusic.mp3" type="audio/mpeg" />
-    </audio> -->
+    </audio> 
 
     <div class="audio-player">
       <div class="icon-container">
@@ -28,8 +24,7 @@
            <audio src="./medias/audio/pokemonMainMusic.mp3" autoplay controls   loop ></audio>
       </div>
     </div>
-
-
+  -->
 
     <!-- <div id="sound-control">
       <img class="button-instruction"
@@ -39,16 +34,18 @@
     </div> -->
 
     <!--Div du popUp des instructions-->
-    <div class="visble" id="div-instructions">
-      <h1 id="titlePokeMem">POKÉ-MEM</h1> 
-      <div class="navigation">
+    <div id="div_instructions">
+      <h1 id="titlePokeMem">POKÉ-MEM</h1>
+      <div id="navigation">
         <div class="navigation-two">
           <button id="close-instructions">
-            <img class="button-instruction"
+            <img
+              class="button-instruction"
               src="./img/NicePng_close-button-png_521653.png"
               alt="close instructions"
             />
           </button>
+          
           <h1>Instructions</h1>
           <p>
             Welcome to the Pokemon Memory Game : The Poké-Mem ! The goal is to
@@ -62,7 +59,7 @@
 
     <!--Div du bouton start-->
     <div class="wrapper start">
-      <a class="cta" href="#">
+      <a class="cta" href="./arena.html">
         <span>START</span>
         <span>
           <svg
@@ -142,7 +139,6 @@
         </span>
       </a>
     </div>
-
     <script src="./landing.js"></script>
   </body>
 </html>
