@@ -210,8 +210,8 @@ window.addEventListener("load", (event) => {
         return pokemem.pickedCards.length == 2;
       };
 
-      // If 2 cards are the same --> they stay on their pokemon side
-      // If 2 cards aren't the same --> they go back to their hidden side
+      // If 2 cards are the same --> they remains visible (Pokemon side up)
+      // If 2 cards aren't the same --> they turns back to their hidden state (backside of the card)
       // Add a setTimout of 1 second --> the last card appears before the popup page
       if (checkToCard()) {
         let card1 = pokemem.pickedCards[0].dataset.cardName;
@@ -266,7 +266,7 @@ window.addEventListener("load", (event) => {
     });
   });
 });
-
+// Replay function 
 const replay = () => location.reload();
 const start = document.querySelector("#start");
 start.onclick = () => {

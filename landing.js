@@ -6,8 +6,10 @@ const test = document.getElementById("testbutton");
 
 const instructionPopUp = document.querySelector("#navigation");
 const instructionButton = document.getElementById("button-instructions");
+const rulesPopUp = document.querySelector("#rules");
 instructionButton.onclick = () => {
   instructionPopUp.style.visibility = "visible";
+  rulesPopUp.style.visibility = "hidden";
 };
 
 // Closing pop-up control
@@ -20,7 +22,6 @@ closingInstructionsButton.onclick = () => {
 // Rules opening control
 const rulesButton = document.querySelector("#button_rules");
 const rulesClosingPopUp = document.querySelector("#close-instructions-rules");
-const rulesPopUp = document.querySelector("#rules");
 
 rulesButton.onclick = () => {
   instructionPopUp.style.visibility = "hidden";
