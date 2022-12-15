@@ -38,7 +38,7 @@ audio::-webkit-media-controls-play-button {
   z-index: -1;
 }
 
-/* POkememe Title*/
+/* Pokememe Title*/
 #titlePokeMem {
   position: fixed;
   top: 1%;
@@ -86,13 +86,11 @@ audio::-webkit-media-controls-play-button {
 }
 
 .button-instruction {
-  /*position: absolute;*/
   width: 45px;
   height: 45px;
 }
 
 #close-instructions {
-  /*position: absolute;*/
   height: 50px;
   width: 50px;
   background-color: Transparent;
@@ -119,14 +117,10 @@ background: none;
 font-family: "Pokemon Solid", sans-serif;
 color:#ffcb00;
 text-shadow: 2px 2px 4px black;
-/* transform: 2s ease-in-out; */
 }
 
 #button_rules:hover{
   transform: scale(1.5) ;
-  
- /*  webkit-transition: transform 2s ease-in-out; */
-
 }
 
 

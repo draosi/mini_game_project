@@ -38,7 +38,6 @@ li {
   margin: 0px auto;
   border-radius: 84px;
   box-shadow: inset 0px 0px 20px -6px #615961;
-  /* z-index: -1; */
 }
 
 .card {
@@ -117,10 +116,6 @@ p {
   visibility: hidden;
 }
 
-#lvl {
-  /*  visibility: hidden; */
-}
-
 .navigation-two {
   display: flex;
   flex-direction: column;
@@ -128,14 +123,20 @@ p {
   align-items: center;
 }
 
+#loseReplay:hover{
+  transform :scale(1.5)
+} 
+
+#winReplay:hover{
+  transform : scale(1.5)
+}
+
 .button-instruction {
-  /*position: absolute;*/
   width: 45px;
   height: 45px;
 }
 
 .close-instructions {
-  /*position: absolute;*/
   height: 50px;
   width: 50px;
   background-color: Transparent;
@@ -153,4 +154,8 @@ p {
   display: inline-block;
   padding: 0 30px;
   font-size: 30px;
+}
+
+.lvlNumber:hover{
+  transform: scale(1.5);
 }
