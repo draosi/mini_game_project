@@ -1,11 +1,26 @@
 // Home page control
 // Music control
 let audioLanding = document.querySelector("#landingSound");
-audioLanding.volume = 0
+audioLanding.volume = 0.1
+audioLanding.pause()
+let ctrl = 0
+console.log(audioLanding.pause())
 let soundCtrl = document.querySelector("#sound-control");
 let audioIcon = document.getElementById("iconAudio");
 
 soundCtrl.onclick = () => {
+  if (ctrl == 0) {
+    audioIcon.src = "./img/icons8-audio-64.png";
+    audioLanding.play();
+    ctrl ++
+  } else {
+    audioIcon.src = "./img/noAudioIcon.png";
+    audioLanding.pause();
+    ctrl --
+  }
+};
+
+/* soundCtrl.onclick = () => {
   if (audioLanding.volume == 0) {
     audioIcon.src = "./img/icons8-audio-64.png";
     audioLanding.volume = 0.1;
@@ -13,7 +28,7 @@ soundCtrl.onclick = () => {
     audioIcon.src = "./img/noAudioIcon.png";
     audioLanding.volume = 0;
   }
-};
+}; */
 
 // Opening pop-up control
 
