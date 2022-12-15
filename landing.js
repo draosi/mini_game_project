@@ -1,6 +1,19 @@
 // Home page control
-const test = document.getElementById("testbutton");
 // Music control
+let audioLanding = document.querySelector("#landingSound");
+audioLanding.volume = 0
+let soundCtrl = document.querySelector("#sound-control");
+let audioIcon = document.getElementById("iconAudio");
+
+soundCtrl.onclick = () => {
+  if (audioLanding.volume == 0) {
+    audioIcon.src = "./img/icons8-audio-64.png";
+    audioLanding.volume = 0.1;
+  } else {
+    audioIcon.src = "./img/noAudioIcon.png";
+    audioLanding.volume = 0;
+  }
+};
 
 // Opening pop-up control
 
@@ -30,6 +43,7 @@ rulesButton.onclick = () => {
 rulesClosingPopUp.onclick = () => {
   rulesPopUp.style.visibility = "hidden";
 };
+
 /* 
 // Rules pop up control 
 const closingInstructionsButton = document.querySelector('#close-instructions')
