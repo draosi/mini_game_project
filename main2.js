@@ -6,8 +6,7 @@ class PokeMem {
     this.pairsGuessed = 0;
   }
 
-  /* Fonction permettant de "mélanger" les cartes. Donnant une position aléatoire aux cartes
-   sur le plateau à chaque partie */
+  // Function to shuffle all the cards and to give --> each game, they will have a random position
   shuffleCards()  {
     if (this.cards){
     for (let i = this.cards.length - 1; i > 0; i--){
@@ -21,7 +20,7 @@ class PokeMem {
   }
   }
 
-  /* Fonction verifiant si 2 cartes sont similaire, si oui, this.pairsGuessed est incrémenté de 1 */
+  // Function to check if to cards are the same. If true --> 'this.pairsGuessed' is incremented of one
   checkIfPair(card1, card2) {
    this.pairsClicked += 1
    if (card1 === card2){
@@ -32,15 +31,13 @@ class PokeMem {
    }
   }
 
-/* Fonction permettant de verifier si toute les paires ont été trouvées. */
+  // Function to check if all the pairs have been found
   checkIfFinished() {
     if (this.pairsGuessed === this.cards.length / 2){
       return true 
     } else {
       return false
     };
-
-
   }
 }
   

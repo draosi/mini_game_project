@@ -25,11 +25,12 @@ const cards = [
   { name: "Lokhlass", img: "Lokhlass.png" },
 ];
 
-// Function mili to min-sec
+// Timer formating
 function padTo2Digits(num) {
-  return num.toString().padStart(2, '0');
+  return num.toString().padStart(2, "0");
 }
 
+// Function to convert millisconds to minutes
 function convertMsToMinutesSeconds(milliseconds) {
   const minutes = Math.floor(milliseconds / 60000);
   const seconds = Math.round((milliseconds % 60000) / 1000);
@@ -39,21 +40,23 @@ function convertMsToMinutesSeconds(milliseconds) {
     : `${minutes}:${padTo2Digits(seconds)}`;
 }
 
-//convertMsToMinutesSeconds(180000); 
+// Function to convert milliseconds to second
 const milliToSec = (milliseconds) => {
-  const newSecond = Math.floor(milliseconds / 1000)
-  return newSecond
-}
+  const newSecond = Math.floor(milliseconds / 1000);
+  return newSecond;
+};
 
-
+// New object creation based on Pokemem class 
 const pokemem = new PokeMem(cards);
+
+// Cards Shuffle
 pokemem.shuffleCards();
 
+// Poke Board depth at -1 (set in the background)
 const pokeBoard = document.querySelector("#poke-board");
 pokeBoard.style.zIndex = -1;
 
-/* lvlOne */
-
+//Level pop-up
 const closeLevelPopUp = document.querySelector("#closeLevel");
 const lvlPopUp = document.querySelector("#lvl");
 closeLevelPopUp.onclick = () => {
@@ -61,145 +64,123 @@ closeLevelPopUp.onclick = () => {
   pokeBoard.style.zIndex = 1;
 };
 
-
-
-
-// level choose
-
+// The user chooses the level by clicking on any number inside the level popup
 const whichLvl = document.querySelectorAll(".lvlNumber");
+let testNumber
+whichLvl.forEach(
+  (lvl) =>
+    (lvl.onclick = () => {
+      testNumber = Number(lvl.textContent);
+      let control = 0;
+      lvlPopUp.style.visibility = "hidden";
+      pokeBoard.style.zIndex = 1;
 
-/* whichLvl[0].onclick = () => console.log(whichLvl[0].textContent)
-whichLvl[1].onclick = () => console.log(whichLvl[1].textContent)
-whichLvl[2].onclick = () => console.log(whichLvl[2].textContent)
-whichLvl[3].onclick = () => console.log(whichLvl[3].textContent) */
-let testNumber = 1
-whichLvl.forEach(lvl => lvl.onclick = () => {
-  testNumber = Number(lvl.textContent)
-  let control = 0
-  lvlPopUp.style.visibility = "hidden";
-  pokeBoard.style.zIndex = 1;
-
-   // If user chose LVL 2
-      if(testNumber == 1){
-        
+      // Condition based on if user chooses LVL 1
+      if (testNumber == 1) {
       }
-      else 
-      if (testNumber == 2) {
-      setTimeout(gameOver, 180000)
-        
-      
-        //let timerLvl2 = convertMsToMinutesSeconds(180000)
-        if(control== 0){
 
-          let countMili = 180000
-          let count = milliToSec(countMili)
-          const updateTime = ()=> {    
-            if(count == 0){
-              stopTimer()
+      // Condition based on if user chooses LVL 2
+      else if (testNumber == 2) {
+        // 3 minutes condition timer to complete the game
+        setTimeout(180000);
+        if (control == 0) {
+          let countMili = 180000;
+          let count = milliToSec(countMili);
+          const updateTime = () => {
+            if (count == 0) {
+              // If the time is elapsed, the player looses
+              clearInterval(timer);
+              gameOver();
+            } else if (pokemem.checkIfFinished()) {
+              // If all the pairs are found, the timer stops
+              clearInterval(timer);
+            } else {
+              // If the player is playing, the timer is decreamenting every second
+              count--;
+              let secToMilli = count * 1000;
+              let timerSelector = document.querySelector("#timer");
+              timerSelector.innerHTML = convertMsToMinutesSeconds(secToMilli);
             }
-            count -- 
-            let secToMilli = count *1000
-          let timerSelector = document.querySelector('#timer')
-          timerSelector.innerHTML = convertMsToMinutesSeconds(secToMilli)
-          
+          };
+          // Timer update : calls updateTime every second untill pokemon.checkIfFinished() is true
+          const timer = setInterval(updateTime, 1000);
+          control++;
         }
-         const timer = setInterval(
-          updateTime
-         /*  if(timer == 0){
-            clearInterval(timer)
-          } */
-          
-         ,1000)
-         
-          control ++
-         } }
-        
-  else if (testNumber == 3){
-    setTimeout(gameOver, 90000);
-    //let timerLvl2 = convertMsToMinutesSeconds(180000)
-    if(control== 0){
-      let countMili = 90000
-      let count = milliToSec(countMili)
-      const updateTime = ()=> {    
-        count -- 
-        let secToMilli = count *1000
-      let timerSelector = document.querySelector('#timer')
-      timerSelector.innerHTML = convertMsToMinutesSeconds(secToMilli)
-    }
-      setInterval(updateTime,1000)
-      control ++
       }
-    }
-  
-   else if (testNumber == 4){
-    
-    const pair = pokemem.pairsClicked
-    console.log(pair)
-      if( pair > 4){
-       
-        gameOver()
+
+      // Condition based on if user chooses LVL 3
+      else if (testNumber == 3) {
+        // A minute an a half to complete the game
+        setTimeout(90000);
+        if (control == 0) {
+          let countMili = 90000;
+          let count = milliToSec(countMili);
+          const updateTime = () => {
+            if (count == 0) {
+              clearInterval(timer);
+              gameOver();
+            } else if (pokemem.checkIfFinished()) {
+              clearInterval(timer);
+            } else {
+              count--;
+              let secToMilli = count * 1000;
+              let timerSelector = document.querySelector("#timer");
+              timerSelector.innerHTML = convertMsToMinutesSeconds(secToMilli);
+            }
+          };
+          const timer = setInterval(updateTime, 1000);
+          control++;
+        }
       }
-    }
- /*    const pairsClicked = document.querySelector("#pairs-clicked");
-    pairsClicked.innerHTML = pokemem.pairsClicked;
- */
 
-})
+      // If user choose LVL 4
+      else if (testNumber == 4) {
+        // 30 seconds to win the game
+        setTimeout(30000);
+        if (control == 0) {
+          let countMili = 30000;
+          let count = milliToSec(countMili);
+          const updateTime = () => {
+            if (count == 0) {
+              clearInterval(timer);
+              gameOver();
+            } else if (pokemem.checkIfFinished()) {
+              clearInterval(timer);
+            } else {
+              count--;
+              let secToMilli = count * 1000;
+              let timerSelector = document.querySelector("#timer");
+              timerSelector.innerHTML = convertMsToMinutesSeconds(secToMilli);
+            }
+          };
+          const timer = setInterval(updateTime, 1000);
+          control++;
+        }
+      }
+    })
+);
 
-const stopTimer = () => {
-  clearInterval(timer)
-}
 
-
-
-
-
-/* const whichLvlClicked = whichLvl.onclick = () => {
-  console.log(whichLvl.textContent)
-}
- */
-
-/* 
-whichLvlClicked.forEach((element) => {
-  element.onclick = (event) => {
-    event.target.value;
-  };
-}); */
-/* ∞ */
-
-/* , 3, 4; */
-/* LVL 2 */
-
+// Game over function
 const gameOver = () => {
-  const lost = document.querySelector("#loseState")
-  lost.style.visibility = 'visible'
+  const lost = document.querySelector("#loseState");
+  lost.style.visibility = "visible";
   pokeBoard.style.zIndex = -1;
 
-  lost.onclick = () =>{
-    lost.style.visibility = 'hidden'
+  lost.onclick = () => {
+    lost.style.visibility = "hidden";
     pokeBoard.style.zIndex = 1;
-    replay()
-  }
+    replay();
+  };
 
   const replayButton = document.querySelector("#loseReplay");
   replayButton.onclick = () => {
     pokeBoard.style.zIndex = 1;
     replay();
   };
-}
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
+// Add the cards to the HTML page
 window.addEventListener("load", (event) => {
   let html = "";
   pokemem.cards.forEach((pic) => {
@@ -211,9 +192,10 @@ window.addEventListener("load", (event) => {
     `;
   });
 
+  // Add the arena to the HTML
   document.querySelector("#poke-board").innerHTML = html;
-  /* Cette fonction fait en sorte que lorsque l'on clique sur une seule carte, cette dernière
-   obtient la class "turned" qui permet à une carte de resté tourné coté visible */
+
+  // Once you click on a card, it adds the class '.turned' to it --> allows the card to stay on the pokemon side
   document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("click", () => {
       if (
@@ -223,15 +205,14 @@ window.addEventListener("load", (event) => {
         card.classList.toggle("turned");
         pokemem.pickedCards.push(card);
       }
-      /* Ici nous limitons à 2 le nombre de carte pouvant être retourné simultanément */
+      // Only 2 cards can be on their pokemon side at the same time
       const checkToCard = () => {
         return pokemem.pickedCards.length == 2;
       };
 
-      /* Ici nous ajoutons la fonction qui permettra de "bloquer" les paires de cartes coté visible 
-   lorsqu'elles sont similaire, ou de les retrouner si elles ne le sont pas. Et nous faisons apparaitre 
-   une fenetre lorsque le joueur trouve toutes les paires en ajoutant un setTimeout d'une seconde 
-   permettant a la derniere carte d'apparaitre avant. */
+      // If 2 cards are the same --> they stay on their pokemon side
+      // If 2 cards aren't the same --> they go back to their hidden side
+      // Add a setTimout of 1 second --> the last card appears before the popup page
       if (checkToCard()) {
         let card1 = pokemem.pickedCards[0].dataset.cardName;
         let card2 = pokemem.pickedCards[1].dataset.cardName;
@@ -247,17 +228,16 @@ window.addEventListener("load", (event) => {
           setTimeout(() => {
             if (pokemem.checkIfFinished()) {
               pokeBoard.style.zIndex = -1;
-
+              // The win popup appears
               const finishedPopUp = document.querySelector("#winState");
               finishedPopUp.style.visibility = "visible";
-              /* replay  */
+
               const replayButton = document.querySelector(".replay");
               replayButton.onclick = () => {
                 replay();
               };
               /* Closing popup */
               const finishedPopUpButton = document.getElementById("closeWin");
-              /* const pokeBoard = document.querySelector("#poke-board"); */
 
               finishedPopUpButton.onclick = () => {
                 finishedPopUp.style.visibility = "hidden";
@@ -265,6 +245,8 @@ window.addEventListener("load", (event) => {
               };
             }
           }, 1000);
+          const pairsClicked = document.querySelector("#pairs-clicked");
+          pairsClicked.innerHTML = pokemem.pairsClicked;
         } else {
           const returnCards = () => {
             setTimeout(() => {
@@ -284,16 +266,9 @@ window.addEventListener("load", (event) => {
     });
   });
 });
+
 const replay = () => location.reload();
 const start = document.querySelector("#start");
 start.onclick = () => {
   replay();
 };
-
-/* LEVEL */
-/* const levelArray = [1,2,3,4,5] */
-
-/* Page reload function to restart the game */
-/* */
-
-/* Credits when the player qui the game */

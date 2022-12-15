@@ -67,6 +67,18 @@ audio::-webkit-media-controls-play-button {
   visibility: hidden;
 }
 
+#rules{
+  position: fixed;
+  top: 25%;
+  left: 10%;
+  width: 40%;
+  border-radius: 15%;
+  color: #ffcb00;
+  background: rgb(6, 0, 36, 50%);
+  box-shadow: 2px 2px 2px black;
+  visibility: hidden;
+}
+
 .navigation-two {
   display: flex;
   flex-direction: column;
@@ -89,6 +101,34 @@ audio::-webkit-media-controls-play-button {
   cursor: pointer;
   overflow: hidden;
 }
+
+#close-instructions-rules{
+  height: 50px;
+  width: 50px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#button_rules{
+  padding: 0;
+border: none;
+background: none;
+font-family: "Pokemon Solid", sans-serif;
+color:#ffcb00;
+text-shadow: 2px 2px 4px black;
+/* transform: 2s ease-in-out; */
+}
+
+#button_rules:hover{
+  transform: scale(1.5) ;
+  
+ /*  webkit-transition: transform 2s ease-in-out; */
+
+}
+
 
 h1 {
   text-align: center;

@@ -2,26 +2,39 @@
 const test = document.getElementById("testbutton");
 // Music control
 
-
 // Opening pop-up control
 
 const instructionPopUp = document.querySelector("#navigation");
 const instructionButton = document.getElementById("button-instructions");
 instructionButton.onclick = () => {
-  instructionPopUp.style.visibility='visible';
+  instructionPopUp.style.visibility = "visible";
 };
-
-
 
 // Closing pop-up control
 
+const closingInstructionsButton = document.querySelector("#close-instructions");
+closingInstructionsButton.onclick = () => {
+  instructionPopUp.style.visibility = "hidden";
+};
+
+// Rules opening control
+const rulesButton = document.querySelector("#button_rules");
+const rulesClosingPopUp = document.querySelector("#close-instructions-rules");
+const rulesPopUp = document.querySelector("#rules");
+
+rulesButton.onclick = () => {
+  instructionPopUp.style.visibility = "hidden";
+  rulesPopUp.style.visibility = "visible";
+};
+rulesClosingPopUp.onclick = () => {
+  rulesPopUp.style.visibility = "hidden";
+};
+/* 
+// Rules pop up control 
 const closingInstructionsButton = document.querySelector('#close-instructions')
 closingInstructionsButton.onclick = () => {
     instructionPopUp.style.visibility='hidden';
-  };
-  
-
-
+  }; */
 
 //Sound control
 // const soundButtonLanding = document.querySelector("#soundControl");
