@@ -1,0 +1,161 @@
+@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+body {
+  height: 1000px;
+  margin: 0;
+  background: url("./img/arena.png") no-repeat;
+  background-size: 100% 100%;
+  font-family: "Pokemon Solid", sans-serif;
+  font-style: italic;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+}
+
+#nav_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  background: rgb(6, 0, 36, 60%);
+  font-size: larger;
+}
+li {
+  color: #416aa4;
+  font-family: "Pokemon Solid", sans-serif;
+  text-shadow: 2px 2px 4px black;
+  list-style: none;
+  display: inline-block;
+  padding: 0 30px;
+}
+#homeIcon {
+  height: 100px;
+}
+
+#poke-board {
+  width: 76.7%;
+  height: 60%;
+  padding-top: 5.7%;
+  margin: 0px auto;
+  border-radius: 84px;
+  box-shadow: inset 0px 0px 20px -6px #615961;
+}
+
+.card {
+  display: inline-block;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.turned {
+  pointer-events: none;
+}
+
+.card.turned .front {
+  transform: rotateY(0deg);
+}
+.card.turned .back {
+  transform: rotateY(180deg);
+}
+
+.card .back,
+.card .front {
+  width: 71px;
+  height: 115px;
+  margin: 10px;
+  padding: 20px;
+  font-size: 64px;
+  transition: transform 0.6s ease;
+  border-radius: 6%;
+}
+
+.card .back {
+  background-image: url(./img/Cardback.jpeg);
+  background-size: cover;
+}
+
+.card .front {
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotateY(-180deg) translateZ(1px);
+  backface-visibility: hidden;
+}
+
+h1 {
+  display: flex;
+  color: #ffcb00;
+  font-size: 70px;
+  text-shadow: 2px 2px 4px black;
+}
+
+p {
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* you win  */
+
+.navigation {
+  position: fixed;
+  top: 26%;
+  left: 29%;
+  width: 40%;
+  border-radius: 15%;
+  color: #ffcb00;
+  background: rgb(6, 0, 36, 50%);
+  box-shadow: 2px 2px 2px black;
+}
+
+#winState {
+  visibility: hidden;
+}
+#loseState {
+  visibility: hidden;
+}
+
+.navigation-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#loseReplay:hover{
+  transform :scale(1.5)
+} 
+
+#winReplay:hover{
+  transform : scale(1.5)
+}
+
+.button-instruction {
+  width: 45px;
+  height: 45px;
+}
+
+.close-instructions {
+  height: 50px;
+  width: 50px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.lvlNumber {
+  color: #ffcb00;
+  font-family: "Pokemon Solid", sans-serif;
+  text-shadow: 2px 2px 4px black;
+  list-style: none;
+  display: inline-block;
+  padding: 0 30px;
+  font-size: 30px;
+}
+
+.lvlNumber:hover{
+  transform: scale(1.5);
+}

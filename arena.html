@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Poké-Mem Aréna</title>
+    <link rel="stylesheet" href="./board.css" />
+  </head>
+  <body>
+    <nav>
+      <ul id="nav_bar">
+        <li>
+          <a href="./index.html"
+            ><lottie-player
+              src="https://assets3.lottiefiles.com/packages/lf20_8xgkc3be.json"
+              background="transparent"
+              speed="0.4"
+              style="width: 150px; height: 150px"
+              loop
+              autoplay
+            ></lottie-player
+          ></a>
+        </li>
+        <li >Time: <span id = 'timer' >No-limit</span> </li>
+        <li id="start">
+          <lottie-player
+            src="https://assets6.lottiefiles.com/packages/lf20_1X6X9xuFYX.json"
+            background="transparent"
+            speed="0.5"
+            style="width: 90px; height: 90px"
+            loop
+            autoplay
+          ></lottie-player>
+        </li>
+        <li>
+          <p>Pairs clicked: <span id="pairs-clicked">0</span></p>
+        </li>
+        <li>
+          <p>Pairs guessed: <span id="pairs-guessed">0</span>/12</p>
+        </li>
+      </ul>
+    </nav>
+    <div id="lvl" class="navigation">
+      <button id="closeLevel" class="close-instructions">
+        <img
+          class="button-instruction"
+          src="./img/NicePng_close-button-png_521653.png"
+          alt="close instructions"
+        />
+      </button>
+
+      <div class="navigation-two">
+        <h1>Level</h1>
+        <div >
+          <ul id = "lvlNumberAll">
+            <li id="one" class="lvlNumber">1</li>
+            <li id="two" class="lvlNumber">2</li>
+            <li id="three" class="lvlNumber">3</li>
+            <li id="four" class="lvlNumber">4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="winState" class="navigation">
+      <button id="closeWin" class="close-instructions">
+        <img
+          class="button-instruction"
+          src="./img/NicePng_close-button-png_521653.png"
+          alt="close instructions"
+        />
+      </button>
+
+      <div class="navigation-two">
+        <h1>You win !</h1>
+        <p id="winReplay" class="replay">Replay</p>
+      </div>
+    </div>
+
+    <div id="loseState" class="navigation">
+      <button class="close-instructions">
+        <img
+          class="button-instruction"
+          src="./img/NicePng_close-button-png_521653.png"
+          alt="close instructions"
+        />
+      </button>
+
+      <div class="navigation-two">
+        <h1>You Lose !</h1>
+        <p id="loseReplay" class="replay">
+          Try Again ?
+          <br />
+        </p>
+      </div>
+    </div>
+
+    <div id="poke-board"></div>
+
+    <script src="./main2.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </body>
+</html>
